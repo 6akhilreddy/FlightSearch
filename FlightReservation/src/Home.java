@@ -17,6 +17,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Formatter;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JButton;
@@ -132,7 +135,21 @@ public class Home extends JFrame {
 				String from=t1.getText().replaceAll("\\s",""),to=t2.getText().replaceAll("\\s","");
 				String date=t3.getText();int nos=Integer.parseInt(t4.getText());
 			
-				int range=0;	
+				Date date2 = new Date();  
+			    SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");  
+			    String strDate = formatter.format(date2);  
+			    String[] d1=new String[3];
+			    d1=strDate.split("-");
+			    
+			    String[] d2=new String[3];
+			    d2=date.split("-");
+			    
+			    if(Integer.parseInt(d2[0])<Integer.parseInt(d1[0]) || Integer.parseInt(d2[1])<Integer.parseInt(d1[1]) || Integer.parseInt(d2[2])<Integer.parseInt(d1[2])) {
+			    	
+			    	JOptionPane.showMessageDialog(null,"Cannot select the Previous Date");
+			    }
+			    else {
+			    int range=0;	
 					
 				//Database Connection
 				
@@ -156,6 +173,7 @@ public class Home extends JFrame {
 				else
 				new View(from,to,date,nos);	//new page call
 				
+			}
 			}
 				
 		});
