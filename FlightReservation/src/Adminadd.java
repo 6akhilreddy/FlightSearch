@@ -178,7 +178,6 @@ public class Adminadd extends JApplet implements ActionListener{
     f.setLayout(null);  
     f.setVisible(true);
     f.setExtendedState(JFrame.MAXIMIZED_BOTH); 
-	//f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	
 	b1.addActionListener(this);
 	b2.addActionListener(this);

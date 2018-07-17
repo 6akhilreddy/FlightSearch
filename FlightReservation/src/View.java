@@ -152,8 +152,8 @@ public class View extends JApplet implements ActionListener{
 			String[] arr1=new String[2];	
 			String[] arr2=new String[2];
 		
-			arr1=b.split("-");
-			arr2=c.split("-");
+			arr1=b.split(":");
+			arr2=c.split(":");
 		
 			int	hr1=Integer.parseInt((arr1[0]));
 			int hr2=Integer.parseInt((arr2[0]));
@@ -167,9 +167,9 @@ public class View extends JApplet implements ActionListener{
 			int min2=Integer.parseInt(arr1[1]);
 		
 			if(hr1>hr2)
-				l12=new JLabel("Duration :"+Math.abs(Math.abs((hr2-hr1))-24)+"h - "+Math.abs((min2-min1))+"M");
+				l12=new JLabel("Duration :"+Math.abs(Math.abs((hr2-hr1))-24)+"h : "+Math.abs((min2-min1))+"M");
 			else
-				l12=new JLabel("Duration :"+Math.abs((hr2-hr1))+"h - "+Math.abs((min2-min1))+"M");
+				l12=new JLabel("Duration :"+Math.abs((hr2-hr1))+"h : "+Math.abs((min2-min1))+"M");
 		
 			l12.setForeground(new Color(255, 51, 102));
 			l12.setFont(new Font("Arial",Font.BOLD,15));
