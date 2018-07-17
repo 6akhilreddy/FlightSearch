@@ -165,38 +165,42 @@ public class BookFlight extends JApplet{
 		
     	JLabel j=new JLabel("Reservation Sucessfull");
     	j.setFont(new Font("Arial",Font.BOLD,25));
-        j.setForeground(Color.black);
+        j.setForeground(new Color(255, 51, 102));
     	
         JLabel	jspace=new JLabel(" ");
         jspace.setFont(new Font("Arial",Font.BOLD,25));
         
     	JLabel j1=new JLabel("Name : "+name);
     	j1.setFont(new Font("Arial",Font.BOLD,25));
-        j1.setForeground(Color.black);
+        j1.setForeground(new Color(255, 51, 102));
     	
         JLabel j2=new JLabel("Date : "+date);
     	j2.setFont(new Font("Arial",Font.BOLD,25));
-        j2.setForeground(Color.black);
+        j2.setForeground(new Color(255, 51, 102));
     	
         JLabel j3=new JLabel("Departure : "+departure);
     	j3.setFont(new Font("Arial",Font.BOLD,25));
-        j3.setForeground(Color.black);
+        j3.setForeground(new Color(255, 51, 102));
     	
         JLabel j4=new JLabel("Arrival : "+arrival);
     	j4.setFont(new Font("Arial",Font.BOLD,25));
-        j4.setForeground(Color.black);
+        j4.setForeground(new Color(255, 51, 102));
     	
         JLabel j5=new JLabel("No of seats : "+nos);
     	j5.setFont(new Font("Arial",Font.BOLD,25));
-        j5.setForeground(Color.black);
+        j5.setForeground(new Color(255, 51, 102));
         
-        JLabel j6=new JLabel("Amount : "+amount);
+        JLabel j6=new JLabel("Amount(INR) : "+amount);
     	j6.setFont(new Font("Arial",Font.BOLD,25));
-        j6.setForeground(Color.black);
+        j6.setForeground(new Color(255, 51, 102));
     	
     	//UIManager is used to increase the default size of the JOptionPane
         
     	UIManager.put("OptionPane.minimumSize",new Dimension(500,500));
+    	 UIManager.put("OptionPane.background", Color.white);
+    	 UIManager.put("Panel.background", Color.white);
+    	
+    	
     	JLabel[] arr = {j,jspace,j1,j2,j3,j4,j5,j6};
     	JOptionPane.showMessageDialog(null, arr);
     	
