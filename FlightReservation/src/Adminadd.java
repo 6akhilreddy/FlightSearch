@@ -308,7 +308,19 @@ public String getDescription() { return "Images (*.gif,*.bmp, *.jpg, *.png )"; }
 	
 	public static void main(String args[]){
 		
-		new Adminadd();
+		String pass = JOptionPane.showInputDialog("Enter Password");
+		System.out.println(pass);
+		
+		if (pass == null) {
+		   JOptionPane.showMessageDialog(null,"Enter Password");
+		}	
+		else if(pass.equals("admin")){
+			new Adminadd();		
+		}
+		else {
+			JOptionPane.showMessageDialog(null,"password wrong");
+				
+			}
 		
 	}
 }
