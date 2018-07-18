@@ -34,17 +34,17 @@ A step by step series of examples that tell you how to get a development environ
 4.Change the Database configurations(username,password) in all the files before you start with the application.
 
 ```
-1.Adminadd.java/ line-228
+1.Adminadd.java/ line-267
 
-2.ViewPassenger.java/ line-53
+2.ViewPassenger.java/ line-54
 
-3.DeleteFlights.java/ line-57,line-244
+3.DeleteFlights.java/ line-52,line-235
 
 4.Home.java/ line-157
 
 5.View.java/ line-50
 
-6.BookFlight.java/ line-137,line-290
+6.BookFlight.java/ line-137,line-293
 ```
 5.Run Adminadd.java file in Eclipse IDE to upload the flight details to the database.
 
