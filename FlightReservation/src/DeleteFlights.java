@@ -210,7 +210,6 @@ DeleteFlights(){
 	con.close();  
   
 }catch(Exception e){ System.out.println(e);}  
-
 	
 	JScrollPane pane = new JScrollPane(p,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 	pane.setBounds(40,160,1280,520);
