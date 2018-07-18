@@ -309,7 +309,6 @@ public String getDescription() { return "Images (*.gif,*.bmp, *.jpg, *.png )"; }
 	public static void main(String args[]){
 		
 		String pass = JOptionPane.showInputDialog("Enter Password");
-		System.out.println(pass);
 		
 		if (pass == null) {
 		   JOptionPane.showMessageDialog(null,"Enter Password");
