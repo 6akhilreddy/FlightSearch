@@ -9,19 +9,19 @@ import java.awt.event.*;
 
 public class Adminadd extends JApplet implements ActionListener{
 	
-	JLabel l1,l2,l3,l4,l5,l6,l7,l8,l9,l10,l11,l12;
-	JButton b1,b2;
-	JTextField t1,t2,t3,t4,t5,t6,t7,t8,t9;
+	private JLabel l1,l2,l3,l4,l5,l6,l7,l8,l9,l10,l11,l12;
+	private JButton b1,b2;
+	private JTextField t1,t2,t3,t4,t5,t6,t7,t8,t9;
 	private JButton btnNewButton;
 	private JButton btnNewButton_1;
 
-	
 	Adminadd(){
-		
 		
 	JFrame f=new JFrame("ADMIN PANNEL");
 		
-	f.getContentPane().setBackground(Color.darkGray);;
+	f.getContentPane().setBackground(Color.darkGray);	//for background color
+	
+	//Initialization of all labels and TextFields
 	
 	l1=new JLabel("Flight Reservation");
 	l1.setFont(new Font("Arial",Font.BOLD,50));
@@ -183,9 +183,7 @@ public class Adminadd extends JApplet implements ActionListener{
     btnNewButton.addActionListener(new ActionListener() {
     	public void actionPerformed(ActionEvent e) {
     		
-    		new DeleteFlights();
-    		
-    		
+    		new DeleteFlights();	//calling the constructor of DeleteFlights.java
     		
     	}
     });
@@ -199,8 +197,7 @@ public class Adminadd extends JApplet implements ActionListener{
     btnNewButton_1.addActionListener(new ActionListener() {
     	public void actionPerformed(ActionEvent e) {
     		
-    	new ViewPassengers();
-    		
+    	new ViewPassengers();	//Calling the constructor of Viewpassengers.java
     		
     	}
     });
@@ -212,7 +209,8 @@ public class Adminadd extends JApplet implements ActionListener{
     f.setVisible(true);
     f.setExtendedState(JFrame.MAXIMIZED_BOTH); 
 	
-	b1.addActionListener(this);
+	
+    b1.addActionListener(this);	//explicit addition of Action Listener
 	b2.addActionListener(this);
 	
 	
@@ -220,14 +218,17 @@ public class Adminadd extends JApplet implements ActionListener{
 	
 	public void actionPerformed(ActionEvent ae){
 	
-	String s=ae.getActionCommand();
+	String s=ae.getActionCommand();	//getting the text associated with the button click
 	
-	File file = null;
+	File file = null;  
     String path="";
 	 
     if(s.equals("Browse")){	
 
-    
+    /*
+     * creating the object to the chooser class to browse the files in the local file system
+     */
+    	
 	JFileChooser chooser = new JFileChooser();
     chooser.addChoosableFileFilter(new ImageFileFilter());
     int returnVal = chooser.showOpenDialog(null);
@@ -235,30 +236,39 @@ public class Adminadd extends JApplet implements ActionListener{
     if(returnVal == JFileChooser.APPROVE_OPTION) {   
     file = chooser.getSelectedFile();
     path=file.getPath();
-    t9.setText(path);
+    t9.setText(path);		//setting the selected path to the text field
     }
 
     }
 	
 	else{
     String id,name,source,dest,sttime,endtime,image;
+    /*
+     * Get the text from all text fields to upload in database
+     */
 	int nos=Integer.parseInt(t7.getText());
 	int price=Integer.parseInt(t8.getText());
 	id=t1.getText();name=t2.getText();source=t3.getText();dest=t4.getText();sttime=t5.getText();endtime=t6.getText();image=t9.getText();
 	
+	//check if all text fields are filled
+	
 	if(id.equals("")||name.equals("")||(t7.getText()).equals("")||source.equals("")||dest.equals("")||sttime.equals("")||endtime.equals("")||(t8.getText()).equals("")){
 	
 		JOptionPane.showMessageDialog(null,"All Fields Must Be Filled !!");
-
-	
 	}
 	
 	else{
+	
+		//Database connection
 	
 	try{
     File f=new File(image);
 	Class.forName("oracle.jdbc.driver.OracleDriver");
 	Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:oracle","system","system");
+	/*
+	 * PreparedStatement is used to store multiple values into database at once
+	 */
+	
 	PreparedStatement psmnt = connection.prepareStatement("insert into flight values(?,?,?,?,?,?,?,?,?)");
 	
 	psmnt.setString(1,""+id+"");  
@@ -270,16 +280,21 @@ public class Adminadd extends JApplet implements ActionListener{
 	psmnt.setInt(7, nos);
 	psmnt.setInt(8, price);
 	
-	FileInputStream fis = new FileInputStream(f);
+	FileInputStream fis = new FileInputStream(f); //read the data from source and convert to bytes
 	psmnt.setBinaryStream(9, (InputStream)fis, (int)(f.length()));
 	
 	
 	psmnt.executeUpdate();
 	JOptionPane.showMessageDialog(null,"Inserted successfully!");
     }
+	
     catch(Exception ex){
         System.out.print(ex);
     }	
+	
+	/*
+	 * setting all the text fields to empty after uploading a record
+	 */
 	t1.setText("");
 	t2.setText("");
 	t3.setText("");
@@ -292,10 +307,12 @@ public class Adminadd extends JApplet implements ActionListener{
 	}
 	
 	}
-
-
 		
-	}
+}
+
+	/*
+	 * class to browse for image in the local file system
+	 */
 	
 class ImageFileFilter extends javax.swing.filechooser.FileFilter {
 public boolean accept(File file) {
@@ -307,6 +324,10 @@ public String getDescription() { return "Images (*.gif,*.bmp, *.jpg, *.png )"; }
 }
 	
 	public static void main(String args[]){
+		
+		/*
+		 * Ask for the password before going to AdminPanel
+		 */
 		
 		String pass = JOptionPane.showInputDialog("Enter Password");
 		

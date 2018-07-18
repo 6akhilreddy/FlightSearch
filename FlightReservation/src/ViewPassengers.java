@@ -17,7 +17,6 @@ ViewPassengers(){
 	
 	f.getContentPane().setBackground(Color.darkGray);;
 
-
 	l1=new JLabel("OnlineBookStore");
 	l1.setFont(new Font("Arial",Font.BOLD,50));
 	l1.setForeground(Color.yellow);
@@ -36,21 +35,23 @@ ViewPassengers(){
     lblAllTickets.setBounds(579, 96, 266, 53);
     f.getContentPane().add(lblAllTickets);
     
-		
+/*
+ * created a JPanel and used GridBagLayout that provides grids		
+ */
 	
     JPanel p=new JPanel();
     GridBagLayout grid = new GridBagLayout();  
     GridBagConstraints gbc = new GridBagConstraints();  
-	gbc.insets = new Insets(10,25,5,25);
+	gbc.insets = new Insets(10,25,5,25);	//for padding
     p.setLayout(grid);  
   
-   p.setBackground(Color.getHSBColor(0.56f, 1.0f, 0.8f));
+   p.setBackground(Color.getHSBColor(0.56f, 1.0f, 0.8f)); //for using HSB color values
 
-   	
+   //Database connection
 	try{
 		Class.forName("oracle.jdbc.driver.OracleDriver");  
   
-	    Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:oracle","system","system");  
+	    Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:oracle","system","system");	//Driver-'thin',Server-'localhost',PortNumber-'1521',sysId-'oracle',userName-'system',password-'system'  
   
 		Statement stmt=con.createStatement();  
  
@@ -58,11 +59,13 @@ ViewPassengers(){
 		
 		int	range=0;
 		
+		//for finding the number of records in the table
+		
 		while(rs.next()){
 		range++;
 		}
-		
-		
+			
+		//Initializing the array labels with the range(number of records)
 		
 		l4=new JLabel[range]; 
 		l5=new JLabel[range];
@@ -74,94 +77,91 @@ ViewPassengers(){
 		String a,b,c,d,e,g;
 		
 		int x=0,y=0;
-	
-	ResultSet rs1=stmt.executeQuery("select * from reserved ");  
 		
+		//Query to get the records from table
+		
+		ResultSet rs1=stmt.executeQuery("select * from reserved ");  
 		
 		for(int i=0;rs1.next();i++){  
 			
-		 a=rs1.getString("fid");
-		 b=rs1.getString("uname");
-		 c=rs1.getString("phno");
-		 d=rs1.getString("ddate");
-		 e=rs1.getString("noseats");		
-		 g=rs1.getString("amount");
-		
-		gbc.fill = GridBagConstraints.HORIZONTAL;  
-		gbc.gridx = x;  
-		gbc.gridy = y; 
-		gbc.anchor = GridBagConstraints.PAGE_START;
-		 
-		
-		l4[i]=new JLabel("Flight ID: "+a);
-		l4[i].setFont(new Font("Arial",Font.BOLD,25));
-		l4[i].setForeground(Color.orange);
-		p.add(l4[i],gbc);
-		
-		
-		
-		gbc.fill = GridBagConstraints.HORIZONTAL;  
-		gbc.gridx = x;  
-		gbc.gridy = y+1; 
-		
-		l5[i]=new JLabel("Passenger Name :"+b);
-		l5[i].setFont(new Font("Arial",Font.BOLD,15));
-		l5[i].setForeground(Color.green);
-		p.add(l5[i],gbc);
-		
-		
-		gbc.fill = GridBagConstraints.HORIZONTAL;  
-		gbc.gridx = x;  
-		gbc.gridy = y+2; 
-		
-		l6[i]=new JLabel("phone Number :"+c);
-		l6[i].setFont(new Font("Arial",Font.BOLD,15));
-		l6[i].setForeground(Color.white);
-		p.add(l6[i],gbc);
-		
-		
-		gbc.fill = GridBagConstraints.HORIZONTAL;  
-		gbc.gridx = x;  
-		gbc.gridy = y+3; 
-		
-		
-		l7[i]=new JLabel("Date Of Travel :"+d);
-		l7[i].setForeground(Color.white);
-		l7[i].setFont(new Font("Arial",Font.BOLD,15));
-		p.add(l7[i],gbc);
-		
-		
-		gbc.fill = GridBagConstraints.HORIZONTAL;  
-		gbc.gridx = x;  
-		gbc.gridy = y+4; 
-		
-		
-		l8[i]=new JLabel("Number of Seats :"+e);
-		l8[i].setFont(new Font("Arial",Font.BOLD,15));
-		l8[i].setForeground(Color.white);
-		p.add(l8[i],gbc);
-		
-		gbc.fill = GridBagConstraints.HORIZONTAL;  
-		gbc.gridx = x;  
-		gbc.gridy = y+5; 
-		
-		
-		l9[i]=new JLabel("Amount(INR) :"+g);
-		l9[i].setFont(new Font("Arial",Font.BOLD,15));
-		l9[i].setForeground(Color.white);
-		p.add(l9[i],gbc);
-		
-		 
-		x++;
-		 
-		 
-		 if(x==4){
-		 x=0;y+=6;}
+			 a=rs1.getString("fid");
+			 b=rs1.getString("uname");
+			 c=rs1.getString("phno");
+			 d=rs1.getString("ddate");
+			 e=rs1.getString("noseats");		
+			 g=rs1.getString("amount");
+			
+			gbc.fill = GridBagConstraints.HORIZONTAL;  
+			gbc.gridx = x;  
+			gbc.gridy = y; 
+			gbc.anchor = GridBagConstraints.PAGE_START;
+			 
+			
+			l4[i]=new JLabel("Flight ID: "+a);
+			l4[i].setFont(new Font("Arial",Font.BOLD,25));
+			l4[i].setForeground(Color.orange);
+			p.add(l4[i],gbc);
+			
+			gbc.fill = GridBagConstraints.HORIZONTAL;  
+			gbc.gridx = x;  
+			gbc.gridy = y+1; 
+			
+			l5[i]=new JLabel("Passenger Name :"+b);
+			l5[i].setFont(new Font("Arial",Font.BOLD,15));
+			l5[i].setForeground(Color.green);
+			p.add(l5[i],gbc);
+			
+			
+			gbc.fill = GridBagConstraints.HORIZONTAL;  
+			gbc.gridx = x;  
+			gbc.gridy = y+2; 
+			
+			l6[i]=new JLabel("phone Number :"+c);
+			l6[i].setFont(new Font("Arial",Font.BOLD,15));
+			l6[i].setForeground(Color.white);
+			p.add(l6[i],gbc);
+			
+			
+			gbc.fill = GridBagConstraints.HORIZONTAL;  
+			gbc.gridx = x;  
+			gbc.gridy = y+3; 
+			
+			
+			l7[i]=new JLabel("Date Of Travel :"+d);
+			l7[i].setForeground(Color.white);
+			l7[i].setFont(new Font("Arial",Font.BOLD,15));
+			p.add(l7[i],gbc);
+			
+			
+			gbc.fill = GridBagConstraints.HORIZONTAL;  
+			gbc.gridx = x;  
+			gbc.gridy = y+4; 
+			
+			
+			l8[i]=new JLabel("Number of Seats :"+e);
+			l8[i].setFont(new Font("Arial",Font.BOLD,15));
+			l8[i].setForeground(Color.white);
+			p.add(l8[i],gbc);
+			
+			gbc.fill = GridBagConstraints.HORIZONTAL;  
+			gbc.gridx = x;  
+			gbc.gridy = y+5; 
+			
+			
+			l9[i]=new JLabel("Amount(INR) :"+g);
+			l9[i].setFont(new Font("Arial",Font.BOLD,15));
+			l9[i].setForeground(Color.white);
+			p.add(l9[i],gbc);
+				 
+			x++;
+			/*
+			 * for displaying the records in the new row after 4 columns
+			 */
+			 if(x==4){
+			 x=0;y+=6;}
 		 
         }
 		
-	
-
 	con.close();  
   
 }catch(Exception e){ System.out.println(e);}  
@@ -177,13 +177,9 @@ ViewPassengers(){
     
     
     f.setVisible(true);
-	f.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+	f.setExtendedState(JFrame.MAXIMIZED_BOTH);	//To display full screen 
 	
 	}
-
-
-	
-	
 
 public void actionPerformed(ActionEvent ae){
 	

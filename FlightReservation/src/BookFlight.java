@@ -257,6 +257,9 @@ public class BookFlight extends JApplet{
 		}
 	};
 
+	/*
+	 * to display the flight details while reservation
+	 */
 	
 	JLabel label1 = new JLabel();
 	label1.setHorizontalAlignment(SwingConstants.CENTER);
@@ -293,17 +296,16 @@ public class BookFlight extends JApplet{
 
 		while(rs.next()) {
 		
-			byte[] image = null;
+			byte[] image = null;//initializing byte array because the image present in database is in the form bytes
             image = rs.getBytes("image");
-            img = Toolkit.getDefaultToolkit().createImage(image);
-			icon = new ImageIcon(new ImageIcon(img).getImage().getScaledInstance(150, 150, Image.SCALE_DEFAULT));
+            img = Toolkit.getDefaultToolkit().createImage(image);//convert bytes to image
+			icon = new ImageIcon(new ImageIcon(img).getImage().getScaledInstance(150, 150, Image.SCALE_DEFAULT)); //convert image to imageIcon of specified size
          
 			label1.setIcon(icon);
 			
 			label2.setText("Flight Name: "+rs.getString("fname"));
 			label3.setText("Departure: "+rs.getString("starttime"));
-			label4.setText("Arrival: "+rs.getString("endtime"));
-			
+			label4.setText("Arrival: "+rs.getString("endtime"));		
 			
 		}
 
@@ -314,8 +316,5 @@ public class BookFlight extends JApplet{
     
     f.setVisible(true);
  	
-	
 	}
-
-
 }

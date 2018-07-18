@@ -144,7 +144,7 @@ public class View extends JApplet implements ActionListener{
 			 
 			 Take the strings of departure and arrival 
 			 and store it in string array by spiting the string
-			 with '-' sign, later subtract the two values to
+			 with ':' sign, later subtract the two values to
 			 get the duration between departure and arrival
 			 
 			 */
@@ -251,6 +251,5 @@ public void actionPerformed(ActionEvent ae){
   new BookFlight(m, n, o, price);	
 	
 	}
-
 
 }
