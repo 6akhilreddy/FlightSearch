@@ -12,6 +12,8 @@ public class Adminadd extends JApplet implements ActionListener{
 	JLabel l1,l2,l3,l4,l5,l6,l7,l8,l9,l10,l11,l12;
 	JButton b1,b2;
 	JTextField t1,t2,t3,t4,t5,t6,t7,t8,t9;
+	private JButton btnNewButton;
+	private JButton btnNewButton_1;
 
 	
 	Adminadd(){
@@ -25,132 +27,132 @@ public class Adminadd extends JApplet implements ActionListener{
 	l1.setFont(new Font("Arial",Font.BOLD,50));
 	l1.setForeground(Color.yellow);
 	l1.setBounds(100,0 ,500,100);
-	f.add(l1);
+	f.getContentPane().add(l1);
 	
 	l2=new JLabel("Admin Pannel");
 	l2.setFont(new Font("Arial",Font.BOLD,40));
 	l2.setForeground(Color.yellow);
 	l2.setBounds(1100,0,500,100);
-	f.add(l2);
+	f.getContentPane().add(l2);
 	
 	l3=new JLabel("Add Flights");
 	l3.setFont(new Font("Arial",Font.BOLD,35));
 	l3.setForeground(Color.yellow);
 	l3.setBounds(800,70,300,50);
-	f.add(l3);
+	f.getContentPane().add(l3);
 
 	l4=new JLabel("Flight Id : ");
 	l4.setFont(new Font("Arial",Font.BOLD,25));
 	l4.setForeground(Color.orange);
-	l4.setBounds(680,140,300,50);
-	f.add(l4);
+	l4.setBounds(612,139,300,50);
+	f.getContentPane().add(l4);
 
 	t1=new JTextField(20);
 	t1.setForeground(Color.white);
 	t1.setFont(new Font("Arial",Font.BOLD,18));
 	t1.setOpaque(false);
 	t1.setBounds(900,150,200,30);
-	f.add(t1);
+	f.getContentPane().add(t1);
 	
 	l5=new JLabel("Flight Name : ");
 	l5.setFont(new Font("Arial",Font.BOLD,25));
 	l5.setForeground(Color.orange);
-	l5.setBounds(680,190,300,50);
-	f.add(l5);
+	l5.setBounds(612,189,300,50);
+	f.getContentPane().add(l5);
 
 	t2=new JTextField(20);
 	t2.setForeground(Color.white);
 	t2.setFont(new Font("Arial",Font.BOLD,18));
 	t2.setOpaque(false);
 	t2.setBounds(900,200,200,30);
-	f.add(t2);
+	f.getContentPane().add(t2);
 	
 	
 	l6=new JLabel("Source : ");
 	l6.setFont(new Font("Arial",Font.BOLD,25));
 	l6.setForeground(Color.orange);
-	l6.setBounds(680,240,300,50);
-	f.add(l6);
+	l6.setBounds(612,241,300,50);
+	f.getContentPane().add(l6);
 
 	t3=new JTextField(20);
 	t3.setForeground(Color.white);
 	t3.setFont(new Font("Arial",Font.BOLD,18));
 	t3.setOpaque(false);
 	t3.setBounds(900,250,200,30);
-	f.add(t3);
+	f.getContentPane().add(t3);
 	
 	
 	l7=new JLabel("Destination : ");
 	l7.setFont(new Font("Arial",Font.BOLD,25));
 	l7.setForeground(Color.orange);
-	l7.setBounds(680,290,300,50);
-	f.add(l7);
+	l7.setBounds(612,291,300,50);
+	f.getContentPane().add(l7);
 
 	t4=new JTextField(20);
 	t4.setForeground(Color.white);
 	t4.setFont(new Font("Arial",Font.BOLD,18));
 	t4.setOpaque(false);
 	t4.setBounds(900,300,200,30);
-	f.add(t4);
+	f.getContentPane().add(t4);
 	
-	l8=new JLabel("Start Time : ");
+	l8=new JLabel("Start Time(hh:mm) : ");
 	l8.setFont(new Font("Arial",Font.BOLD,25));
 	l8.setForeground(Color.orange);
-	l8.setBounds(680,340,300,50);
-	f.add(l8);
+	l8.setBounds(612,341,300,50);
+	f.getContentPane().add(l8);
 
 	t5=new JTextField(20);
 	t5.setForeground(Color.white);
 	t5.setFont(new Font("Arial",Font.BOLD,18));
 	t5.setOpaque(false);
 	t5.setBounds(900,350,200,30);
-	f.add(t5);
+	f.getContentPane().add(t5);
 	
-    l9=new JLabel("End Time : ");
+    l9=new JLabel("End Time(hh:mm) : ");
     l9.setFont(new Font("Arial",Font.BOLD,25));
     l9.setForeground(Color.orange);
-    l9.setBounds(680,390,300,50);
-    f.add(l9);
+    l9.setBounds(612,391,300,50);
+    f.getContentPane().add(l9);
 
     t6=new JTextField(20);
     t6.setForeground(Color.white);
     t6.setFont(new Font("Arial",Font.BOLD,18));
     t6.setOpaque(false);
     t6.setBounds(900,400,200,30);
-    f.add(t6);
+    f.getContentPane().add(t6);
 
     l10=new JLabel("seats : ");
 	l10.setFont(new Font("Arial",Font.BOLD,25));
 	l10.setForeground(Color.orange);
-	l10.setBounds(680,440,300,50);
-	f.add(l10);
+	l10.setBounds(612,437,300,50);
+	f.getContentPane().add(l10);
 
 	t7=new JTextField(20);
 	t7.setForeground(Color.white);
 	t7.setFont(new Font("Arial",Font.BOLD,18));
 	t7.setOpaque(false);
 	t7.setBounds(900,450,200,30);
-	f.add(t7);
+	f.getContentPane().add(t7);
 
 	l11=new JLabel("Price : ");
 	l11.setFont(new Font("Arial",Font.BOLD,25));
 	l11.setForeground(Color.orange);
-	l11.setBounds(680,490,300,50);
-	f.add(l11);
+	l11.setBounds(612,490,300,50);
+	f.getContentPane().add(l11);
 
 	t8=new JTextField(20);
 	t8.setForeground(Color.white);
 	t8.setFont(new Font("Arial",Font.BOLD,18));
 	t8.setOpaque(false);
 	t8.setBounds(900,500,200,30);
-	f.add(t8);
+	f.getContentPane().add(t8);
 
 	
 	l12=new JLabel("Upload Photo : ");
 	l12.setFont(new Font("Arial",Font.BOLD,25));
 	l12.setForeground(Color.orange);
-	l12.setBounds(680,540,300,50);
-	f.add(l12);
+	l12.setBounds(612,540,300,50);
+	f.getContentPane().add(l12);
 
 	
 	t9=new JTextField(20);
@@ -158,24 +160,55 @@ public class Adminadd extends JApplet implements ActionListener{
 	t9.setFont(new Font("Arial",Font.BOLD,18));
 	t9.setOpaque(false);
 	t9.setBounds(900,550,200,30);
-	f.add(t9);
+	f.getContentPane().add(t9);
 	
 	b1=new JButton("Browse");
-	b1.setForeground(Color.black);
+	b1.setForeground(Color.yellow);
 	b1.setBackground(Color.gray);
 	b1.setBounds(1150,550,150,30);
-	f.add(b1);
+	f.getContentPane().add(b1);
 	
 	
 	b2=new JButton("SAVE");
 	b2.setFont(new Font("Arial",Font.BOLD,30));
-	b2.setForeground(Color.black);
+	b2.setForeground(Color.yellow);
 	b2.setBackground(Color.gray);
 	b2.setBounds(860,610,130,50);
-	f.add(b2);
+	f.getContentPane().add(b2);
 	
 	f.setSize(900,500);  
-    f.setLayout(null);  
+    f.getContentPane().setLayout(null);  
+    
+    btnNewButton = new JButton("Delete Flights");
+    btnNewButton.addActionListener(new ActionListener() {
+    	public void actionPerformed(ActionEvent e) {
+    		
+    		new DeleteFlights();
+    		
+    		
+    		
+    	}
+    });
+    btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 20));
+    btnNewButton.setBackground(Color.DARK_GRAY);
+    btnNewButton.setForeground(Color.YELLOW);
+    btnNewButton.setBounds(110, 172, 282, 58);
+    f.getContentPane().add(btnNewButton);
+    
+    btnNewButton_1 = new JButton("View Passengers");
+    btnNewButton_1.addActionListener(new ActionListener() {
+    	public void actionPerformed(ActionEvent e) {
+    		
+    	new ViewPassengers();
+    		
+    		
+    	}
+    });
+    btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 20));
+    btnNewButton_1.setBackground(Color.DARK_GRAY);
+    btnNewButton_1.setForeground(Color.YELLOW);
+    btnNewButton_1.setBounds(110, 274, 282, 58);
+    f.getContentPane().add(btnNewButton_1);
     f.setVisible(true);
     f.setExtendedState(JFrame.MAXIMIZED_BOTH); 
 	
